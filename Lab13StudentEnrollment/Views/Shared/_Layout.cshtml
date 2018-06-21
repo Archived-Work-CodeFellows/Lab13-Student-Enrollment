@@ -1,0 +1,15 @@
+﻿
+<nav>
+    <ul>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-area="" asp-controller="Students" asp-action="Index">Students</a></li>
+        <li><a asp-area="" asp-controller="Courses" asp-action="Index">Courses</a></li>
+    </ul>
+</nav>
+
+
+<div>
+    @RenderBody()
+    <hr/>
+    <footer><p>&copy; @DateTime.Now.Year - Eric Singleton</p></footer>
+</div>
