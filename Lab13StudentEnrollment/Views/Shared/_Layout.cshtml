@@ -1,15 +1,27 @@
-﻿
-<nav>
-    <ul>
-        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-        <li><a asp-area="" asp-controller="Students" asp-action="Index">Students</a></li>
-        <li><a asp-area="" asp-controller="Courses" asp-action="Index">Courses</a></li>
-    </ul>
-</nav>
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+</head>
+
+<body>
+    <nav class="nav navbar-fixed-top">
+        <div class="container">
+            <ul class="nav navbar-nav navbar-fixed-top ">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="Students" asp-action="Index">Students</a></li>
+                <li><a asp-area="" asp-controller="Courses" asp-action="Index">Courses</a></li>
+            </ul>
+        </div>
+    </nav>
 
 
-<div>
-    @RenderBody()
-    <hr/>
-    <footer><p>&copy; @DateTime.Now.Year - Eric Singleton</p></footer>
-</div>
+    <div class="container" style="margin-top:10%">
+        @RenderBody()
+        <hr />
+        <footer><p>&copy; @DateTime.Now.Year - Eric Singleton</p></footer>
+    </div>
+</body>
+</html>
