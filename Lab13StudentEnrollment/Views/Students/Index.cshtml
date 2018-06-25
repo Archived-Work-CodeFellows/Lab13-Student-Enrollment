@@ -1,1 +1,23 @@
-﻿student page
+﻿@model List<Lab13StudentEnrollment.Models.Student>
+student page
+<table class="view-students">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Course ID</th>
+    </tr>
+
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.Name</td>
+            <td>@student.Age</td>
+            <td>@student.CourseID</td>
+            <td><a asp-controller="Students" asp-action="Details" asp-route-id="@student.ID">View</a></td>
+        </tr>
+    }
+</table>
+
+<form method="get" asp-controller="Students" asp-action="Create">
+    <button type="submit">Create new student</button>
+</form>
