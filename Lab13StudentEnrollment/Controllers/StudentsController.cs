@@ -35,7 +35,6 @@ namespace Lab13StudentEnrollment.Controllers
             await _context.Students.AddAsync(student);
             await _context.SaveChangesAsync();
 
-            int id = student.ID;
             return RedirectToAction("Index");
         }
 
@@ -56,6 +55,8 @@ namespace Lab13StudentEnrollment.Controllers
 
             if (ModelState.IsValid)
             {
+                student.ID = id;
+
                 _context.Students.Update(student);
                 await _context.SaveChangesAsync();
             }
@@ -73,6 +74,7 @@ namespace Lab13StudentEnrollment.Controllers
 
             _context.Students.Remove(student);
             await _context.SaveChangesAsync();
+
             return RedirectToAction("Index");
         }
     }
