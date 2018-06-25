@@ -1,16 +1,27 @@
 ﻿@model List<Lab13StudentEnrollment.Models.Course>
-courses page
 
-<form asp-controller="Courses" asp-action="Index" method="get">
 
-    Course ID: <input type="text" name="search">
-    <input type="submit" value="Filter"/>
-</form>
+<h2>Courses Page</h2>
+
+<div class="wrapper">
+    <form asp-controller="Courses" asp-action="Index" method="get">
+
+        Course ID: <input type="text" name="search">
+        <input type="submit" value="Filter" />
+    </form>
+</div>
+
+<div class="wrapper create">
+    <form method="get" asp-controller="Courses" asp-action="Create">
+        <button type="submit">Add new course</button>
+    </form>
+</div>
 
 <table class="view-courses">
     <tr>
         <th>Course ID</th>
         <th>Description</th>
+        <th></th>
     </tr>
 
     @foreach (var course in Model)
@@ -22,7 +33,3 @@ courses page
         </tr>
     }
 </table>
-
-<form method="get" asp-controller="Courses" asp-action="Create">
-    <button type="submit">Add new course</button>
-</form>

@@ -1,0 +1,27 @@
+.nav {
+    left: 10.5vw;
+}
+
+.wrapper{
+    float: left;
+    margin-bottom: 20px;
+}
+.create{
+    margin-left: 10px;
+}
+
+table, tr, td{
+    border: 1px solid black;
+}
+
+table{
+    width: 100%;
+}
+
+th{
+    padding-left: 5px;
+}
+
+.view-courses{
+    clear: both;
+}
