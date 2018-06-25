@@ -27,7 +27,6 @@ namespace Lab13StudentEnrollment.Controllers
                 var filtered = viewAll.Where(c => c.CourseID.Contains(search)).ToList();
                 return View(filtered);
             }
-
             return View(viewAll);
         }
         [HttpGet]

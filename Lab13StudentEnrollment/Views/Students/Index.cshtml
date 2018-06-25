@@ -1,5 +1,12 @@
 ﻿@model List<Lab13StudentEnrollment.Models.Student>
 student page
+
+<form asp-controller="Students" asp-action="Index" method="get">
+
+    Student: <input type="text" name="search">
+    <input type="submit" value="Filter" />
+</form>
+
 <table class="view-students">
     <tr>
         <th>Name</th>

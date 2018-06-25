@@ -18,10 +18,15 @@ namespace Lab13StudentEnrollment.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search)
         {
             var viewAll = await _context.Students.ToListAsync();
 
+            if (!String.IsNullOrEmpty(search))
+            {
+                var filtered = viewAll.Where(s => s.Name.Contains(search)).ToList();
+                return View(filtered);
+            }
             return View(viewAll);
         }
         [HttpGet]
