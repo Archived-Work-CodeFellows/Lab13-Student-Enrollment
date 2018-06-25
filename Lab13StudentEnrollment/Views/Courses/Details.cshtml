@@ -11,6 +11,9 @@
 
     <button type="submit">Update Course</button>
 </form>
+<form asp-action="Delete" asp-route-id="@Model.Course.ID">
+    <button type="submit">Delete Course</button>
+</form>
 <h2>Current Students Enrolled</h2>
 @foreach (var student in Model.Students)
 {

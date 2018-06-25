@@ -18,17 +18,20 @@ namespace Lab13StudentEnrollment.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search)
         {
             var viewAll = await _context.Courses.ToListAsync();
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                var filtered = viewAll.Where(c => c.CourseID.Contains(search)).ToList();
+                return View(filtered);
+            }
 
             return View(viewAll);
         }
         [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Create() => View();
 
         [HttpPost]
         public async Task<IActionResult> Create([Bind("ID,CourseID,Description")]Course course)
@@ -52,14 +55,8 @@ namespace Lab13StudentEnrollment.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, [Bind("ID,CourseID, Description")]Course course)
         {
-            //if(!checkStudent.Any())
-            //{
-            //    return RedirectToAction("Index");
-            //}
             if (ModelState.IsValid)
             {
-                //course.ID = id;              
-                //await _context.SaveChangesAsync();
                 var getCourse = _context.Courses.Where(c => c.ID == id).Single();
                 var getStudents = _context.Students.Where(s => s.CourseID == getCourse.CourseID);
 
@@ -70,13 +67,26 @@ namespace Lab13StudentEnrollment.Controllers
 
                     _context.Students.Update(student);
                 }
-                //getCourse = course;
                 await _context.SaveChangesAsync();
                 _context.Entry(getCourse).State = EntityState.Detached;
 
                 course.ID = id;
                 _context.Courses.Update(course);
                 await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var getCourse = await _context.Courses.Where(c => c.ID == id).SingleAsync();
+            var checkStudents = _context.Students.Where(s => s.CourseID == getCourse.CourseID);
+
+            if(!checkStudents.Any())
+            {
+                _context.Courses.Remove(getCourse);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }

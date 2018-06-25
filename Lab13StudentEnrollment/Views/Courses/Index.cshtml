@@ -1,5 +1,12 @@
 ﻿@model List<Lab13StudentEnrollment.Models.Course>
 courses page
+
+<form asp-controller="Courses" asp-action="Index" method="get">
+
+    Course ID: <input type="text" name="search">
+    <input type="submit" value="Filter"/>
+</form>
+
 <table class="view-courses">
     <tr>
         <th>Course ID</th>
