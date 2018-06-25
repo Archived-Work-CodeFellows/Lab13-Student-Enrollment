@@ -6,8 +6,13 @@
     float: left;
     margin-bottom: 20px;
 }
+
 .create{
     margin-left: 10px;
+}
+
+.push {
+    margin-top:20px;
 }
 
 table, tr, td{
@@ -20,6 +25,11 @@ table{
 
 th{
     padding-left: 5px;
+    height: 30px;
+}
+
+td{
+    padding-left: 10px;
 }
 
 .view-courses{
