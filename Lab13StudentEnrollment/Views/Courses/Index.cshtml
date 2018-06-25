@@ -1,1 +1,28 @@
-﻿Courses page
+﻿@model List<Lab13StudentEnrollment.Models.Course>
+courses page
+
+<form asp-controller="Courses" asp-action="Index" method="get">
+
+    Course ID: <input type="text" name="search">
+    <input type="submit" value="Filter"/>
+</form>
+
+<table class="view-courses">
+    <tr>
+        <th>Course ID</th>
+        <th>Description</th>
+    </tr>
+
+    @foreach (var course in Model)
+    {
+        <tr>
+            <td>@course.CourseID</td>
+            <td>@course.Description</td>
+            <td><a asp-controller="Courses" asp-action="Details" asp-route-id="@course.ID">View</a></td>
+        </tr>
+    }
+</table>
+
+<form method="get" asp-controller="Courses" asp-action="Create">
+    <button type="submit">Add new course</button>
+</form>

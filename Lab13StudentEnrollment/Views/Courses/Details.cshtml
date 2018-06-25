@@ -1,0 +1,24 @@
+﻿@model Lab13StudentEnrollment.Models.CourseDetailsViewModel
+
+<form asp-action="Update" asp-route-id="@Model.Course.ID">
+    <label asp-for="Course.CourseID">Course ID</label>
+    <input asp-for="Course.CourseID" />
+    <br />
+
+    <label asp-for="Course.Description">Description</label>
+    <input asp-for="Course.Description" />
+    <br />
+
+    <button type="submit">Update Course</button>
+</form>
+<form asp-action="Delete" asp-route-id="@Model.Course.ID">
+    <button type="submit">Delete Course</button>
+</form>
+<h2>Current Students Enrolled</h2>
+@foreach (var student in Model.Students)
+{
+    <p>@student</p>
+
+}
+
+

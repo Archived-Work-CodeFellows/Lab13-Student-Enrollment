@@ -1,0 +1,15 @@
+﻿@model Lab13StudentEnrollment.Models.Course
+
+<form method="post" asp-controller="Courses" form-action="Create">
+
+    <label asp-for="CourseID">Course ID</label>
+    <input asp-for="CourseID" />
+    <br />
+
+    <label asp-for="Description">Description</label>
+    <input  asp-for="Description" />
+    <br />
+
+    <button type="submit">Create Course</button>
+
+</form> 
