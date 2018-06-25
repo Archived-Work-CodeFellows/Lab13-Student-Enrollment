@@ -1,0 +1,17 @@
+﻿@model Lab13StudentEnrollment.Models.StudentCreateViewModel
+
+<form method="post" asp-controller="Students" form-action="Create">
+
+    <label asp-for="Student.Name">Name</label>
+    <input asp-for="Student.Name" />
+    <br/>
+
+    <label asp-for="Student.Age">Age</label>
+    <input type="number" asp-for="Student.Age"/>
+    <br/>
+
+    <label asp-for="Student.CourseID" >Course Enrollment</label>
+    <select asp-for="Student.CourseID" asp-items="Model.Courses"></select>
+
+    <button type="submit">Enroll Student</button>
+</form>

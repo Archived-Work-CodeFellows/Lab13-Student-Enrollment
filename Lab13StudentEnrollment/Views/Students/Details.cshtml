@@ -1,0 +1,22 @@
+﻿@model Lab13StudentEnrollment.Models.StudentDetailsViewModel
+
+<form asp-action="Update" asp-route-id="@Model.Student.ID">
+    <label asp-for="Student.Name">Name</label>
+    <input asp-for="Student.Name" />
+    <br />
+
+    <label asp-for="Student.Age">Age</label>
+    <input type="number" asp-for="Student.Age" />
+    <br />
+
+    <label asp-for="Student.CourseID">Course Enrollment</label>
+    <select asp-for="Student.CourseID" asp-items="Model.Courses"></select>
+
+    <button type="submit">Update Student</button>
+</form>
+
+
+<form asp-action="Delete" asp-route-id="@Model.Student.ID">
+    <button type="submit">Delete student</button>
+</form>
+
