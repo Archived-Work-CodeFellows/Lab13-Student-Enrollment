@@ -3,11 +3,13 @@
 <form method="post" asp-controller="Courses" form-action="Create" style="margin-top: 10px;">
 
     <label asp-for="CourseID">Course ID</label>
-    <input asp-for="CourseID" style="margin-left:11px;"/>
+    <input asp-for="CourseID" style="margin-left:11px;" />
+    <span asp-validation-for="CourseID" class="text-danger"></span>
     <br />
 
     <label asp-for="Description">Description</label>
-    <input  asp-for="Description" />
+    <input asp-for="Description" />
+    <span asp-validation-for="Description" class="text-danger"></span>
     <br />
 
     <button type="submit">Create Course</button>

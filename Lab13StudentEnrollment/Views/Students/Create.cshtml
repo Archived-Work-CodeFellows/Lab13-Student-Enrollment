@@ -4,13 +4,15 @@
 
     <label asp-for="Student.Name">Name</label>
     <input asp-for="Student.Name" />
-    <br/>
+    <span asp-validation-for="Student.Name" class="text-danger"></span>
+    <br />
 
     <label asp-for="Student.Age">Age</label>
-    <input type="number" asp-for="Student.Age" style="margin-left:11px;"/>
-    <br/>
+    <input type="number" asp-for="Student.Age" style="margin-left:11px;" />
+    <span asp-validation-for="Student.Age" class="text-danger"></span>
+    <br />
 
-    <label asp-for="Student.CourseID" >Course Enrollment</label>
+    <label asp-for="Student.CourseID">Course Enrollment</label>
     <select asp-for="Student.CourseID" asp-items="Model.Courses" style="width:7.6%;"></select>
     <br />
 

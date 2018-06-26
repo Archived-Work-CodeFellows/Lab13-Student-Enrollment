@@ -58,10 +58,13 @@ namespace Lab13StudentEnrollment.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("ID,Name,Age,CourseID")]Student student)
         {
-            await _context.Students.AddAsync(student);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                await _context.Students.AddAsync(student);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(StudentCreateViewModel.CreateStudent(_context));
         }
         /// <summary>
         /// Action that allows the user to view student specific details.

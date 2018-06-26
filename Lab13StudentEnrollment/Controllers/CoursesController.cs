@@ -52,9 +52,13 @@ namespace Lab13StudentEnrollment.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([Bind("ID,CourseID,Description")]Course course)
         {
-            await _context.Courses.AddAsync(course);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                await _context.Courses.AddAsync(course);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(course);
         }
         /// <summary>
         /// Action that will show details of a valid id
