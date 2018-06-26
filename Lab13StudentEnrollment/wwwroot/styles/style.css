@@ -1,5 +1,19 @@
+body {
+    background: #fff;
+}
+
 .nav {
-    left: 10.5vw;
+    background: #fff;
+    border-bottom: 1px solid black;
+}
+
+hr{
+    clear:both;
+}
+
+.logo {
+    width: 100%;
+    height: 500px;
 }
 
 .wrapper{
