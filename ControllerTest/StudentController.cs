@@ -70,7 +70,11 @@ namespace ControllerTest
             student.CourseID = "cs201";
             //Act
             student.Name = "Joe";
+            student.Age = 30;
+            student.CourseID = "bfa123";
             Assert.Equal("Joe", student.Name);
+            Assert.Equal(30, student.Age);
+            Assert.Equal("bfa123", student.CourseID);
         }
 
         [Fact]

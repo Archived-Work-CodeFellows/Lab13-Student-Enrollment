@@ -45,8 +45,11 @@ namespace ControllerTest
 
             Assert.Equal("cs101", course.CourseID);
 
+            string update = "Not Basic computer science class";
             course.CourseID = "cs201";
+            course.Description = update;
             Assert.Equal("cs201", course.CourseID);
+            Assert.Equal(update, course.Description);
         }
 
         [Fact]
